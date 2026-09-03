@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import { cn } from "@/lib/utils";
 
@@ -60,7 +60,7 @@ export function Header() {
       if (!header) return;
       const focusables = Array.from(
         header.querySelectorAll<HTMLElement>("a[href], button:not([disabled])"),
-      ).filter((el) => el.offsetParent !== null);
+      ).filter((el) => el.offsetParent !== null && el.getAttribute("aria-disabled") !== "true");
       if (focusables.length === 0) return;
 
       const first = focusables[0];
@@ -96,18 +96,18 @@ export function Header() {
             "shadow-[0_1px_24px_-4px_color-mix(in_oklch,var(--color-ink)_18%,transparent)]",
         )}
       >
-        <div className="mx-auto grid max-w-[1400px] grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-4 md:px-10 lg:grid-cols-[auto_1fr_auto]">
+        <div className="mx-auto grid max-w-[1400px] grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-5 md:px-10 md:py-6 lg:grid-cols-[auto_1fr_auto]">
           <a href="#top" className="min-w-0" aria-label="South West Agency — retour en haut">
             <Logo tone="dark" />
           </a>
 
           <nav aria-label="Navigation principale" className="hidden justify-center lg:flex">
-            <ul className="flex items-center gap-8">
+            <ul className="flex items-center gap-10">
               {NAV_ITEMS.map((item) => (
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="swa-nav-underline font-sans text-[0.8125rem] font-medium tracking-[0.08em] text-ink uppercase transition-colors"
+                    className="swa-nav-underline block py-2 font-sans text-[0.8125rem] font-medium tracking-[0.08em] text-ink uppercase transition-colors"
                   >
                     {item.label}
                   </a>
@@ -116,7 +116,16 @@ export function Header() {
             </ul>
           </nav>
 
-          <div className="flex items-center justify-end gap-5">
+          <div className="flex items-center justify-end gap-4">
+            <button
+              type="button"
+              title="Version anglaise à venir"
+              className="flex items-center gap-1 rounded-md px-1.5 py-1 font-sans text-[0.8125rem] font-medium tracking-[0.06em] text-ink uppercase transition-colors hover:text-coral-strong"
+            >
+              FR
+              <ChevronDown aria-hidden="true" className="h-3.5 w-3.5" />
+            </button>
+
             <a
               href="#contact"
               className="hidden rounded-lg bg-coral-strong px-6 py-3 font-sans text-[0.75rem] font-bold tracking-[0.1em] text-coral-foreground uppercase transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 md:inline-flex"
@@ -130,7 +139,7 @@ export function Header() {
               aria-expanded={open}
               aria-controls="mobile-menu"
               aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
-              className="grid h-11 w-11 shrink-0 place-items-center rounded-lg border border-border text-ink transition-colors hover:bg-neutral-surface lg:hidden"
+              className="grid h-11 w-11 shrink-0 place-items-center rounded-lg border border-border text-ink transition-all duration-300 hover:-translate-y-0.5 hover:border-coral-strong/30 hover:bg-background hover:text-coral-strong hover:shadow-[0_6px_16px_-6px_color-mix(in_oklch,var(--color-ink)_28%,transparent)] lg:hidden"
             >
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -156,7 +165,7 @@ export function Header() {
                 <a
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="block py-5 font-display text-3xl font-bold tracking-tight text-ink-foreground"
+                  className="block py-7 font-display text-3xl font-bold tracking-tight text-ink-foreground"
                 >
                   <span className="mr-4 font-sans text-xs font-semibold text-coral-on-ink">
                     0{i + 1}

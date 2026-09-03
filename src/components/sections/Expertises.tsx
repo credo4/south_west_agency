@@ -45,7 +45,7 @@ export function Expertises() {
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
             <Reveal>
-              <p className="swa-kicker">03 — Expertises</p>
+              <p className="swa-kicker">Expertises</p>
             </Reveal>
             <Reveal delay={80}>
               <h2

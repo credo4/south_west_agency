@@ -84,9 +84,9 @@ export function Methode() {
             >
               <img
                 src={methodeImage}
-                alt="Équipe en atelier de conception, wireframes et post-its sur maquette mobile"
+                alt="Équipe en réunion de travail autour de tableaux de bord et graphiques budgétaires"
                 width={1400}
-                height={812}
+                height={933}
                 loading="lazy"
                 decoding="async"
                 className="h-full w-full object-cover"

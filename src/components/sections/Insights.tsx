@@ -64,7 +64,7 @@ export function Insights() {
     >
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <Reveal>
-          <p className="swa-kicker">07 — Insights</p>
+          <p className="swa-kicker">Insights</p>
         </Reveal>
         <Reveal delay={80}>
           <h2

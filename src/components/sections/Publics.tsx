@@ -9,10 +9,10 @@ const PUBLICS = [
 
 export function Publics() {
   return (
-    <section aria-labelledby="publics-title" className="bg-neutral-surface py-24 md:py-32">
+    <section aria-labelledby="publics-title" className="bg-background py-24 md:py-32">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <Reveal>
-          <p className="swa-kicker">02 — Pour qui</p>
+          <p className="swa-kicker">Pour qui</p>
         </Reveal>
         <Reveal delay={80}>
           <h2
@@ -23,12 +23,12 @@ export function Publics() {
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {PUBLICS.map((p, i) => (
             <Reveal
               key={p.titre}
               delay={i * 80}
-              className="group bg-background p-8 transition-colors duration-500 hover:bg-ink md:p-10"
+              className="group rounded-lg border border-border bg-background p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-ink hover:bg-ink hover:shadow-lg md:p-10"
             >
               <span className="font-display text-xs font-bold tracking-[0.16em] text-coral-strong">
                 0{i + 1}

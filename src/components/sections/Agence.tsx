@@ -8,7 +8,7 @@ export function Agence() {
         <div className="grid gap-14 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
           <div>
             <Reveal>
-              <p className="swa-kicker">01 — L'agence</p>
+              <p className="swa-kicker">L'agence</p>
             </Reveal>
             <Reveal delay={80}>
               <p

@@ -53,18 +53,6 @@ function HeroTitle() {
   );
 }
 
-/** Phrase de marque + barre corail, réutilisée dans le plan incliné et sa version bandeau. */
-function BrandLine({ className }: { className?: string }) {
-  return (
-    <div className={className}>
-      <span aria-hidden="true" className="mb-3 block h-7 w-[3px] -skew-x-12 bg-coral" />
-      <p className="max-w-[15rem] font-display text-[1.125rem] leading-[1.3] font-medium text-ink-foreground xl:text-[1.25rem]">
-        Le récit qui fait rayonner les territoires.
-      </p>
-    </div>
-  );
-}
-
 export function Hero() {
   return (
     <>
@@ -126,7 +114,7 @@ export function Hero() {
               </a>
               <a
                 href="#agence"
-                className="swa-nav-underline group inline-flex w-full items-center justify-center gap-2 font-sans text-xs font-bold tracking-[0.1em] text-ink uppercase md:w-auto"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-lg border border-ink/25 bg-transparent px-8 py-4 font-sans text-xs font-bold tracking-[0.1em] text-ink uppercase transition-all duration-300 hover:-translate-y-0.5 hover:border-ink hover:bg-ink hover:text-ink-foreground md:w-auto"
               >
                 Découvrir l'agence
                 <ArrowIcon className="h-3.5 w-3.5 text-coral transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -134,18 +122,7 @@ export function Hero() {
             </Reveal>
           </div>
         </div>
-
-        {/* Plan incliné bas-droite (motif du logotype), ancre le hero au bandeau suivant */}
-        <div className="pointer-events-none absolute inset-0 hidden [clip-path:polygon(78%_0,100%_0,100%_100%,58%_100%)] lg:block xl:[clip-path:polygon(108%_0,100%_0,100%_100%,60%_100%)]">
-          <div className="absolute inset-0 bg-ink" />
-          <BrandLine className="absolute right-8 bottom-10 xl:right-14" />
-        </div>
       </section>
-
-      {/* 768–1023px : le plan incliné disparaît, sa phrase passe en bandeau navy pleine largeur */}
-      <div className="block bg-ink px-5 py-8 md:px-10 lg:hidden">
-        <BrandLine className="mx-auto max-w-[1400px]" />
-      </div>
 
       {/* Bandeau 3 piliers, collé sous le hero */}
       <div className="relative bg-ink">

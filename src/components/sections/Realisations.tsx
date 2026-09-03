@@ -41,7 +41,7 @@ export function Realisations() {
     >
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <Reveal>
-          <p className="swa-kicker">05 — Réalisations</p>
+          <p className="swa-kicker">Réalisations</p>
         </Reveal>
         <Reveal delay={80}>
           <h2

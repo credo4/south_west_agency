@@ -57,16 +57,12 @@ export function Contact() {
   }
 
   return (
-    <section
-      id="contact"
-      aria-labelledby="contact-title"
-      className="bg-neutral-surface py-24 md:py-36"
-    >
+    <section id="contact" aria-labelledby="contact-title" className="bg-background py-24 md:py-36">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           <div>
             <Reveal>
-              <p className="swa-kicker">08 — Contact</p>
+              <p className="swa-kicker">Contact</p>
             </Reveal>
             <Reveal delay={80}>
               <h2
@@ -101,7 +97,7 @@ export function Contact() {
           </div>
 
           <Reveal delay={120}>
-            <div className="bg-background p-7 md:p-12">
+            <div className="rounded-lg border border-border bg-background p-7 shadow-sm md:p-12">
               <Form {...form}>
                 <form
                   onSubmit={form.handleSubmit(onSubmit)}
