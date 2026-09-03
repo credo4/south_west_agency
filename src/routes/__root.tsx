@@ -98,7 +98,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      // Pas d'icône pour l'instant : celle générée depuis le logo n'était pas la
+      // bonne. En attendant la vraie, on laisse juste le titre dans l'onglet.
     ],
     scripts: [
       {
