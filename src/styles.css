@@ -1,0 +1,364 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * South West Agency — design system
+ * Palette charte : Bleu profond #1E2347 / Corail #EA5153 / Neutre #F5F4F4
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --font-display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "Montserrat", Arial, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-coral: var(--coral);
+  --color-coral-foreground: var(--coral-foreground);
+  --color-coral-strong: var(--coral-strong);
+  --color-coral-on-ink: var(--coral-on-ink);
+  --color-neutral-surface: var(--neutral-surface);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-navy-muted: var(--navy-muted);
+  --color-hairline: var(--hairline);
+}
+
+:root {
+  --radius: 0.125rem;
+
+  /* Bleu profond #1E2347 */
+  --ink: oklch(0.272 0.067 275.1);
+  --ink-foreground: oklch(0.98 0.002 260);
+  /* Corail #EA5153 */
+  --coral: oklch(0.644 0.189 23.4);
+  --coral-foreground: oklch(0.99 0 0);
+  /* Variantes accessibles du corail, réservées au texte/boutons sous le seuil
+     "grand texte" AA (18,66px bold / 24px normal) : --coral reste pour les
+     aplats et le grand texte (cf. swa-kicker::before, CtaBand, "à dire.",
+     gros chiffres décoratifs). */
+  --coral-strong: oklch(0.578 0.19 23.4); /* 4,7:1 sur blanc */
+  --coral-on-ink: oklch(0.68 0.165 23.4); /* 4,9:1 sur navy */
+  /* Neutre #F5F4F4 */
+  --neutral-surface: oklch(0.968 0.001 17.2);
+
+  --background: oklch(1 0 0);
+  --foreground: var(--ink);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--ink);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: oklch(0.98 0.002 260);
+  --secondary: oklch(0.963 0.001 106);
+  --secondary-foreground: var(--ink);
+  --muted: oklch(0.963 0.001 106);
+  /* Noir pur #000000, demandé pour le texte muted */
+  --muted-foreground: oklch(0 0 0);
+  --accent: var(--coral);
+  --accent-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.9 0.008 272);
+  --input: oklch(0.88 0.01 272);
+  --ring: var(--coral);
+  --chart-1: var(--ink);
+  --chart-2: var(--coral);
+  --chart-3: oklch(0.48 0.025 272);
+  --chart-4: oklch(0.963 0.001 106);
+  --chart-5: oklch(0.7 0.05 272);
+  --sidebar: oklch(0.963 0.001 106);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--ink);
+  --sidebar-primary-foreground: oklch(0.98 0.002 260);
+  --sidebar-accent: var(--coral);
+  --sidebar-accent-foreground: oklch(0.99 0 0);
+  --sidebar-border: oklch(0.9 0.008 272);
+  --sidebar-ring: var(--coral);
+
+  /* Hero — texte clair et filets sur fond navy */
+  --navy-muted: color-mix(in oklch, var(--ink-foreground) 68%, transparent);
+  --hairline: color-mix(in oklch, var(--ink-foreground) 15%, transparent);
+
+  /* Hero — dégradés de lisibilité au-dessus de l'image de couverture */
+  --gradient-hero: linear-gradient(
+    100deg,
+    var(--background) 0%,
+    color-mix(in oklch, var(--background) 94%, transparent) 30%,
+    color-mix(in oklch, var(--background) 55%, transparent) 52%,
+    transparent 76%
+  );
+  --gradient-hero-vignette: linear-gradient(
+    to bottom,
+    transparent 70%,
+    color-mix(in oklch, var(--ink) 12%, transparent) 100%
+  );
+}
+
+.dark {
+  --background: oklch(0.19 0.045 275.5);
+  --foreground: oklch(0.98 0.002 260);
+  --card: oklch(0.245 0.055 275.5);
+  --card-foreground: oklch(0.98 0.002 260);
+  --popover: oklch(0.245 0.055 275.5);
+  --popover-foreground: oklch(0.98 0.002 260);
+  --primary: oklch(0.98 0.002 260);
+  --primary-foreground: oklch(0.245 0.055 275.5);
+  --secondary: oklch(0.29 0.05 275.5);
+  --secondary-foreground: oklch(0.98 0.002 260);
+  --muted: oklch(0.29 0.05 275.5);
+  --muted-foreground: oklch(0.75 0.02 272);
+  --accent: oklch(0.647 0.176 21.5);
+  --accent-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 18%);
+  --ring: oklch(0.647 0.176 21.5);
+  --neutral-surface: oklch(0.29 0.05 275.5);
+  --sidebar: oklch(0.245 0.055 275.5);
+  --sidebar-foreground: oklch(0.98 0.002 260);
+  --sidebar-primary: oklch(0.98 0.002 260);
+  --sidebar-primary-foreground: oklch(0.245 0.055 275.5);
+  --sidebar-accent: oklch(0.647 0.176 21.5);
+  --sidebar-accent-foreground: oklch(0.99 0 0);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: oklch(0.647 0.176 21.5);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background-color: var(--color-coral);
+    color: var(--color-coral-foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-coral);
+    outline-offset: 3px;
+  }
+}
+
+/* Kicker éditorial : petite étiquette majuscule avec pastille corail */
+@utility swa-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+
+  &::before {
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: var(--color-coral);
+    clip-path: polygon(0 0, 100% 12%, 88% 100%, 6% 88%);
+    flex: none;
+  }
+}
+
+/* Plan incliné issu du logotype */
+@utility swa-slant {
+  clip-path: polygon(0 0, 100% 3.5%, 100% 100%, 0 96.5%);
+}
+
+@utility swa-slant-soft {
+  clip-path: polygon(0 2%, 100% 0, 100% 98%, 0 100%);
+}
+
+/* Lien éditorial avec soulignement animé */
+@utility swa-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 600;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.25rem;
+    height: 1px;
+    width: 100%;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+/* Apparition au scroll */
+@utility swa-reveal {
+  opacity: 0;
+  transform: translateY(1.75rem);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@utility swa-reveal-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Ligne de titre masquée (hero) : révélation overflow + translateY.
+   padding-bottom/margin-bottom négatif compensés : évite que le masque
+   rogne les jambages (q, g) du texte qu'il contient. */
+@utility swa-line-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.16em;
+  margin-bottom: -0.16em;
+}
+
+@utility swa-line {
+  display: block;
+  transform: translateY(110%);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@utility swa-line-in {
+  transform: none;
+}
+
+/* Overlay de lisibilité du hero : dégradé horizontal + voile bas */
+@utility swa-hero-overlay {
+  background-image: var(--gradient-hero), var(--gradient-hero-vignette);
+}
+
+@media (max-width: 1279px) {
+  :root {
+    --gradient-hero: linear-gradient(
+      100deg,
+      var(--background) 0%,
+      color-mix(in oklch, var(--background) 60%, transparent) 30%,
+      color-mix(in oklch, var(--background) 62%, transparent) 52%,
+      transparent 76%
+    );
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --gradient-hero: linear-gradient(
+      color-mix(in oklch, var(--background) 90%, transparent),
+      color-mix(in oklch, var(--background) 90%, transparent)
+    );
+    --gradient-hero-vignette: none;
+  }
+}
+
+/* Soulignement de nav du header : corail, depuis la gauche, 200ms (distinct de swa-link) */
+@utility swa-nav-underline {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.3rem;
+    height: 1.5px;
+    width: 100%;
+    background-color: var(--color-coral);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.2s ease-out;
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
