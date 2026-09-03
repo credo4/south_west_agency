@@ -1,4 +1,5 @@
 import logoSouthWest from "@/assets/logo-south-west.webp";
+import logoSouthWestFooter from "@/assets/logo-south-west-footer.webp";
 import { cn } from "@/lib/utils";
 
 type LogoProps = {
@@ -9,30 +10,31 @@ type LogoProps = {
 
 /**
  * Logotype officiel de la charte (South West Agency).
- * Le fichier a un fond blanc opaque (pas de canal alpha) : sur fond clair
- * (`tone="dark"`, ex. le header) on l'affiche tel quel ; sur fond navy
- * (`tone="light"`, ex. le footer) on le pose sur une plaque blanche pour
- * éviter un rectangle blanc brut au rendu.
+ * - `tone="dark"` (ex. le header, fond clair) : version standard, fond blanc opaque.
+ * - `tone="light"` (ex. le footer, fond navy) : version blanche à fond
+ *   transparent dédiée, posée directement sur le navy sans plaque.
  */
 export function Logo({ className, tone = "dark" }: LogoProps) {
-  const img = (
-    <img
-      src={logoSouthWest}
-      alt="South West Agency"
-      width={202}
-      height={50}
-      decoding="async"
-      className="h-8 w-auto md:h-9"
-    />
-  );
-
-  if (tone === "light") {
-    return (
-      <span className={cn("inline-flex items-center rounded-md bg-background p-2", className)}>
-        {img}
-      </span>
+  const img =
+    tone === "light" ? (
+      <img
+        src={logoSouthWestFooter}
+        alt="South West Agency"
+        width={4096}
+        height={1014}
+        decoding="async"
+        className="h-8 w-auto md:h-9"
+      />
+    ) : (
+      <img
+        src={logoSouthWest}
+        alt="South West Agency"
+        width={202}
+        height={50}
+        decoding="async"
+        className="h-8 w-auto md:h-9"
+      />
     );
-  }
 
   return <span className={cn("inline-flex items-center", className)}>{img}</span>;
 }
