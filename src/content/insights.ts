@@ -139,7 +139,7 @@ export const ARTICLES: Article[] = [
     slug: "communication-institutionnelle-informer-ne-suffit-plus",
     numero: "03",
     categorie: "Décryptage",
-    titre: "Communication institutionnelle : informer ne suffit plus.",
+    titre: "Communication institutionnelle\u00a0: informer ne suffit plus.",
     chapo:
       "La transparence documentaire ne produit pas automatiquement la compréhension. Une institution qui publie tout peut malgré tout être mal comprise, si elle n'a pas construit le chemin qui mène de l'information à l'adhésion.",
     datePublication: "2026-06-30",

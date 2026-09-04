@@ -65,9 +65,9 @@ function Index() {
             <Agence />
             <Publics />
             <Expertises />
+            <Reassurance />
             <Methode />
             <Realisations />
-            <Reassurance />
             <Insights />
             <CtaBand />
           </main>

@@ -23,8 +23,7 @@ const SOCIAL_LINKS = [
   { label: "X", href: "https://x.com/southwestagency", icon: TwitterX },
 ];
 
-const linkClass =
-  "swa-link text-sm text-ink-foreground/75 transition-colors hover:text-ink-foreground";
+const linkClass = "text-sm text-ink-foreground/75 transition-colors hover:text-ink-foreground";
 
 export function Footer() {
   return (
@@ -47,7 +46,7 @@ export function Footer() {
           </div>
 
           <nav aria-label="Navigation">
-            <p className="font-display text-xs font-bold tracking-[0.16em] text-ink-foreground/50 uppercase">
+            <p className="font-display text-xs font-bold tracking-[0.16em] text-ink-foreground uppercase">
               Navigation
             </p>
             <ul className="mt-5 space-y-3">
@@ -62,7 +61,7 @@ export function Footer() {
           </nav>
 
           <nav aria-label="Liens utiles">
-            <p className="font-display text-xs font-bold tracking-[0.16em] text-ink-foreground/50 uppercase">
+            <p className="font-display text-xs font-bold tracking-[0.16em] text-ink-foreground uppercase">
               Liens utiles
             </p>
             <ul className="mt-5 space-y-3">
@@ -85,7 +84,7 @@ export function Footer() {
           </nav>
 
           <div>
-            <p className="font-display text-xs font-bold tracking-[0.16em] text-ink-foreground/50 uppercase">
+            <p className="font-display text-xs font-bold tracking-[0.16em] text-ink-foreground uppercase">
               Suivez-nous
             </p>
             <div className="mt-5 flex gap-3">
@@ -107,7 +106,7 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col gap-3 border-t border-ink-foreground/15 pt-8 text-xs text-ink-foreground/50 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} South West Agency. Tous droits réservés.</p>
-          <Link to="/mentions-legales" className="swa-link hover:text-ink-foreground">
+          <Link to="/mentions-legales" className="hover:text-ink-foreground">
             Mentions légales
           </Link>
         </div>
