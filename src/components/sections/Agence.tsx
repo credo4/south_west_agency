@@ -55,7 +55,7 @@ export function Agence() {
 
           <div className="lg:pt-16">
             <Reveal delay={120} className="h-full min-h-80">
-              <div className="swa-slant-soft h-full overflow-hidden">
+              <div className="h-full overflow-hidden">
                 <img
                   src={agenceImage}
                   alt="Équipe de South West Agency en séance de travail autour de cartes et de documents de territoire"

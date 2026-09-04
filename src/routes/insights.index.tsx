@@ -39,7 +39,7 @@ function InsightsIndexPage() {
             </Reveal>
             <Reveal delay={80}>
               <h1 className="mt-6 max-w-[24ch] font-display text-[clamp(2rem,5vw,3.4rem)] leading-[1.05] font-bold text-ink">
-                Une agence premium doit publier ses idées, pas seulement ses travaux.
+                Nos points de vue sur les territoires, leur récit et leur influence.
               </h1>
             </Reveal>
 

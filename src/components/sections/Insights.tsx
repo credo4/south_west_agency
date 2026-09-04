@@ -23,7 +23,7 @@ export function Insights() {
             id="insights-title"
             className="mt-7 max-w-[24ch] font-display text-[clamp(1.9rem,4.4vw,3.4rem)] leading-[1.05] font-bold text-ink"
           >
-            Une agence premium doit publier ses idées, pas seulement ses travaux.
+            Nos points de vue sur les territoires, leur récit et leur influence.
           </h2>
         </Reveal>
 

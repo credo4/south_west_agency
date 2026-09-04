@@ -1,14 +1,19 @@
 import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Linkedin, TwitterX } from "react-bootstrap-icons";
 import { Logo } from "@/components/Logo";
-import { NAV_ITEMS } from "@/components/sections/Header";
+import { cn } from "@/lib/utils";
 
-// TODO : coordonnées à valider et renseigner avant publication.
+// TODO : coordonnées à valider avant publication.
 const CONTACT = {
   email: "contact@southwestagency.fr",
   telephone: "+33 (0)5 00 00 00 00",
-  adresse: "Adresse à renseigner avant publication",
 };
+
+const NAVIGATION_LINKS = [
+  { href: "/#agence", label: "L'Agence" },
+  { href: "/#expertises", label: "Nos Services" },
+  { href: "/#realisations", label: "Réalisations" },
+];
 
 // TODO : remplacer par les vraies URLs des comptes South West Agency avant publication.
 const SOCIAL_LINKS = [
@@ -18,6 +23,9 @@ const SOCIAL_LINKS = [
   { label: "X", href: "https://x.com/southwestagency", icon: TwitterX },
 ];
 
+const linkClass =
+  "swa-link text-sm text-ink-foreground/75 transition-colors hover:text-ink-foreground";
+
 export function Footer() {
   return (
     <footer className="bg-ink pt-20 pb-10 text-ink-foreground">
@@ -25,31 +33,17 @@ export function Footer() {
         <div className="grid gap-x-8 gap-y-12 md:grid-cols-[1.2fr_1fr_1fr_1fr] md:items-start">
           <div>
             <Logo tone="light" size="lg" />
-          </div>
-
-          <div>
-            <p className="font-display text-xs font-bold tracking-[0.16em] text-ink-foreground/50 uppercase">
-              Contact
-            </p>
-            <ul className="mt-5 space-y-3">
-              <li>
-                <a
-                  href={`mailto:${CONTACT.email}`}
-                  className="swa-link text-sm text-ink-foreground/75 transition-colors hover:text-ink-foreground"
-                >
-                  {CONTACT.email}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`tel:${CONTACT.telephone.replace(/[^+\d]/g, "")}`}
-                  className="swa-link text-sm text-ink-foreground/75 transition-colors hover:text-ink-foreground"
-                >
-                  {CONTACT.telephone}
-                </a>
-              </li>
-              <li className="text-sm text-ink-foreground/50 italic">{CONTACT.adresse}</li>
-            </ul>
+            <div className="mt-6 space-y-2">
+              <a href={`mailto:${CONTACT.email}`} className={cn("block", linkClass)}>
+                {CONTACT.email}
+              </a>
+              <a
+                href={`tel:${CONTACT.telephone.replace(/[^+\d]/g, "")}`}
+                className={cn("block", linkClass)}
+              >
+                {CONTACT.telephone}
+              </a>
+            </div>
           </div>
 
           <nav aria-label="Navigation">
@@ -57,16 +51,36 @@ export function Footer() {
               Navigation
             </p>
             <ul className="mt-5 space-y-3">
-              {NAV_ITEMS.map((item) => (
+              {NAVIGATION_LINKS.map((item) => (
                 <li key={item.href}>
-                  <a
-                    href={item.href}
-                    className="swa-link text-sm text-ink-foreground/75 transition-colors hover:text-ink-foreground"
-                  >
+                  <a href={item.href} className={linkClass}>
                     {item.label}
                   </a>
                 </li>
               ))}
+            </ul>
+          </nav>
+
+          <nav aria-label="Liens utiles">
+            <p className="font-display text-xs font-bold tracking-[0.16em] text-ink-foreground/50 uppercase">
+              Liens utiles
+            </p>
+            <ul className="mt-5 space-y-3">
+              <li>
+                <a href="/#methode" className={linkClass}>
+                  Méthode
+                </a>
+              </li>
+              <li>
+                <a href="/#insights" className={linkClass}>
+                  Insights
+                </a>
+              </li>
+              <li>
+                <Link to="/politique-de-confidentialite" className={linkClass}>
+                  Politique de confidentialité
+                </Link>
+              </li>
             </ul>
           </nav>
 
@@ -93,15 +107,9 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col gap-3 border-t border-ink-foreground/15 pt-8 text-xs text-ink-foreground/50 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} South West Agency. Tous droits réservés.</p>
-          <p className="flex items-center gap-2">
-            <Link to="/mentions-legales" className="swa-link hover:text-ink-foreground">
-              Mentions légales
-            </Link>
-            <span aria-hidden="true">—</span>
-            <Link to="/politique-de-confidentialite" className="swa-link hover:text-ink-foreground">
-              Politique de confidentialité
-            </Link>
-          </p>
+          <Link to="/mentions-legales" className="swa-link hover:text-ink-foreground">
+            Mentions légales
+          </Link>
         </div>
       </div>
     </footer>
