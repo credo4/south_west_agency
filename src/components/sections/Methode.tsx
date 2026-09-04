@@ -49,18 +49,18 @@ export function Methode() {
 
             <div className="mt-8 border-t border-border" />
 
-            <div className="mt-10 flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-4">
+            <div className="mt-10 flex flex-col items-center gap-8 text-center sm:flex-row sm:items-start sm:gap-4 sm:text-left">
               {ETAPES.map((etape, i) => (
                 <Fragment key={etape.num}>
                   <div className="min-w-0 flex-1">
-                    <etape.icon />
+                    <etape.icon className="mx-auto sm:mx-0" />
                     <span className="mt-4 block font-display text-xs font-bold tracking-[0.1em] text-coral-strong">
                       {etape.num}
                     </span>
                     <h3 className="mt-1 font-display text-sm font-bold tracking-[0.08em] text-ink uppercase">
                       {etape.titre}
                     </h3>
-                    <p className="mt-2 max-w-[20ch] text-sm leading-relaxed text-muted-foreground">
+                    <p className="mx-auto mt-2 max-w-[24ch] text-sm leading-relaxed text-muted-foreground sm:mx-0 sm:max-w-[20ch]">
                       {etape.texte}
                     </p>
                   </div>

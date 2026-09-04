@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import hero1280Webp from "@/assets/hero-territoire-1280.webp";
 import { absoluteUrl } from "@/lib/site";
+import { ContactDialogProvider } from "@/components/ContactDialog";
+import { ServiceDialogProvider } from "@/components/ServiceDialog";
 import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
 import { Conviction } from "@/components/sections/Conviction";
@@ -12,7 +14,6 @@ import { Realisations } from "@/components/sections/Realisations";
 import { Reassurance } from "@/components/sections/Reassurance";
 import { Insights } from "@/components/sections/Insights";
 import { CtaBand } from "@/components/sections/CtaBand";
-import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
 
 const TITLE = "South West Agency — Le récit qui fait rayonner les territoires";
@@ -54,22 +55,25 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main>
-        <Hero />
-        <Conviction />
-        <Agence />
-        <Publics />
-        <Expertises />
-        <Methode />
-        <Realisations />
-        <Reassurance />
-        <Insights />
-        <CtaBand />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <ContactDialogProvider>
+      <ServiceDialogProvider>
+        <div className="min-h-screen bg-background">
+          <Header />
+          <main>
+            <Hero />
+            <Conviction />
+            <Agence />
+            <Publics />
+            <Expertises />
+            <Methode />
+            <Realisations />
+            <Reassurance />
+            <Insights />
+            <CtaBand />
+          </main>
+          <Footer />
+        </div>
+      </ServiceDialogProvider>
+    </ContactDialogProvider>
   );
 }

@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import { useServiceDialog } from "@/components/ServiceDialog";
 import { Reveal } from "@/components/Reveal";
 
 export const EXPERTISES = [
@@ -35,6 +36,8 @@ export const EXPERTISES = [
 ];
 
 export function Expertises() {
+  const { openService } = useServiceDialog();
+
   return (
     <section
       id="expertises"
@@ -45,7 +48,7 @@ export function Expertises() {
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
             <Reveal>
-              <p className="swa-kicker">Expertises</p>
+              <p className="swa-kicker">Nos Services</p>
             </Reveal>
             <Reveal delay={80}>
               <h2
@@ -66,9 +69,10 @@ export function Expertises() {
         <ul className="mt-16 border-t border-border">
           {EXPERTISES.map((e, i) => (
             <Reveal key={e.num} as="li" delay={i * 60} className="border-b border-border">
-              <a
-                href="#contact"
-                className="group grid grid-cols-[auto_minmax(0,1fr)] items-start gap-x-6 gap-y-3 py-8 transition-all duration-500 hover:pl-4 md:grid-cols-[5rem_minmax(0,1fr)_minmax(0,1fr)_auto] md:items-center md:py-10"
+              <button
+                type="button"
+                onClick={() => openService(e.num)}
+                className="group grid w-full grid-cols-[auto_minmax(0,1fr)] items-start gap-x-6 gap-y-3 py-8 text-left transition-all duration-500 hover:pl-4 md:grid-cols-[5rem_minmax(0,1fr)_minmax(0,1fr)_auto] md:items-center md:py-10"
               >
                 <span className="font-display text-sm font-bold text-coral-strong md:text-base">
                   {e.num}
@@ -83,7 +87,7 @@ export function Expertises() {
                   Comprendre notre approche
                   <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </span>
-              </a>
+              </button>
             </Reveal>
           ))}
         </ul>

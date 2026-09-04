@@ -49,12 +49,11 @@ async function ensureSchema(): Promise<void> {
           id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
           nom VARCHAR(100) NOT NULL,
           email VARCHAR(255) NOT NULL,
-          telephone VARCHAR(30) NULL,
+          telephone VARCHAR(30) NOT NULL,
           organisation VARCHAR(120) NOT NULL,
-          fonction VARCHAR(120) NULL,
+          fonction VARCHAR(120) NOT NULL,
           besoin VARCHAR(60) NOT NULL,
           message TEXT NOT NULL,
-          delai VARCHAR(120) NULL,
           created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
           INDEX idx_contact_submissions_created_at (created_at)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
@@ -68,17 +67,16 @@ export async function insertContactSubmission(values: ContactFormValues): Promis
   await ensureSchema();
   await getPool().execute(
     `INSERT INTO contact_submissions
-       (nom, email, telephone, organisation, fonction, besoin, message, delai)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+       (nom, email, telephone, organisation, fonction, besoin, message)
+     VALUES (?, ?, ?, ?, ?, ?, ?)`,
     [
       values.nom,
       values.email,
-      values.telephone || null,
+      values.telephone,
       values.organisation,
-      values.fonction || null,
+      values.fonction,
       values.besoin,
       values.message,
-      values.delai || null,
     ],
   );
 }

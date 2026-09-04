@@ -1,15 +1,25 @@
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
+import { toast } from "sonner";
 import { Logo } from "@/components/Logo";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 
+// Préfixées par "/" : ces ancres doivent fonctionner depuis n'importe quelle
+// sous-page (pas seulement depuis la home), pas seulement "#agence" qui ne
+// trouve rien hors de "/".
 export const NAV_ITEMS = [
-  { href: "#agence", label: "Agence" },
-  { href: "#expertises", label: "Expertises" },
-  { href: "#methode", label: "Méthode" },
-  { href: "#realisations", label: "Réalisations" },
-  { href: "#insights", label: "Insights" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#agence", label: "L'Agence" },
+  { href: "/#expertises", label: "Nos Services" },
+  { href: "/#methode", label: "Méthode" },
+  { href: "/#realisations", label: "Réalisations" },
+  { href: "/#insights", label: "Insights" },
 ];
 
 export function Header() {
@@ -97,7 +107,7 @@ export function Header() {
         )}
       >
         <div className="mx-auto grid max-w-[1400px] grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-5 md:px-10 md:py-6 lg:grid-cols-[auto_1fr_auto]">
-          <a href="#top" className="min-w-0" aria-label="South West Agency — retour en haut">
+          <a href="/" className="min-w-0" aria-label="South West Agency — retour à l'accueil">
             <Logo tone="dark" />
           </a>
 
@@ -117,17 +127,38 @@ export function Header() {
           </nav>
 
           <div className="flex items-center justify-end gap-4">
-            <button
-              type="button"
-              title="Version anglaise à venir"
-              className="flex items-center gap-1 rounded-md px-1.5 py-1 font-sans text-[0.8125rem] font-medium tracking-[0.06em] text-ink uppercase transition-colors hover:text-coral-strong"
-            >
-              FR
-              <ChevronDown aria-hidden="true" className="h-3.5 w-3.5" />
-            </button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button
+                  type="button"
+                  aria-label="Choisir la langue"
+                  className="flex items-center gap-1 rounded-md px-1.5 py-1 font-sans text-[0.8125rem] font-medium tracking-[0.06em] text-ink uppercase transition-colors hover:text-coral-strong"
+                >
+                  FR
+                  <ChevronDown aria-hidden="true" className="h-3.5 w-3.5" />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="min-w-36">
+                {/* Le site n'existe qu'en français : la valeur reste figée sur
+                    "fr", choisir "en" affiche juste une notice "à venir". */}
+                <DropdownMenuRadioGroup
+                  value="fr"
+                  onValueChange={(value) => {
+                    if (value === "en") {
+                      toast.info("Version anglaise à venir", {
+                        description: "Le site reste en français pour l'instant.",
+                      });
+                    }
+                  }}
+                >
+                  <DropdownMenuRadioItem value="fr">Français</DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="en">English</DropdownMenuRadioItem>
+                </DropdownMenuRadioGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
             <a
-              href="#contact"
+              href="#cta"
               className="hidden rounded-lg bg-coral-strong px-6 py-3 font-sans text-[0.75rem] font-bold tracking-[0.1em] text-coral-foreground uppercase transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 md:inline-flex"
             >
               Parlons de votre territoire
@@ -177,7 +208,7 @@ export function Header() {
           </ul>
         </nav>
         <a
-          href="#contact"
+          href="#cta"
           onClick={() => setOpen(false)}
           className="sticky bottom-0 mt-8 block rounded-lg bg-coral-strong px-6 py-5 text-center font-sans text-sm font-bold tracking-[0.1em] text-coral-foreground uppercase"
         >

@@ -106,7 +106,7 @@ export function Hero() {
               className="flex flex-col gap-4 pt-2 md:flex-row md:flex-wrap md:items-center"
             >
               <a
-                href="#contact"
+                href="#cta"
                 className="group inline-flex w-full items-center justify-center gap-2 rounded-lg bg-coral-strong px-8 py-4 font-sans text-xs font-bold tracking-[0.1em] text-coral-foreground uppercase transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 md:w-auto"
               >
                 Parlons de votre territoire

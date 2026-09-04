@@ -6,6 +6,8 @@ type LogoProps = {
   className?: string;
   /** Variante d'affichage : sur fond clair ou sur fond bleu profond. */
   tone?: "dark" | "light";
+  /** `lg` : version agrandie (ex. footer, ~180–220px de large sur desktop). */
+  size?: "default" | "lg";
 };
 
 /**
@@ -14,7 +16,9 @@ type LogoProps = {
  * - `tone="light"` (ex. le footer, fond navy) : version blanche à fond
  *   transparent dédiée, posée directement sur le navy sans plaque.
  */
-export function Logo({ className, tone = "dark" }: LogoProps) {
+export function Logo({ className, tone = "dark", size = "default" }: LogoProps) {
+  const sizeClasses = size === "lg" ? "h-11 w-auto md:h-[50px]" : "h-8 w-auto md:h-9";
+
   const img =
     tone === "light" ? (
       <img
@@ -23,7 +27,7 @@ export function Logo({ className, tone = "dark" }: LogoProps) {
         width={4096}
         height={1014}
         decoding="async"
-        className="h-8 w-auto md:h-9"
+        className={sizeClasses}
       />
     ) : (
       <img
@@ -32,7 +36,7 @@ export function Logo({ className, tone = "dark" }: LogoProps) {
         width={202}
         height={50}
         decoding="async"
-        className="h-8 w-auto md:h-9"
+        className={sizeClasses}
       />
     );
 

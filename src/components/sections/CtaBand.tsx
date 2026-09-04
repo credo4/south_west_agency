@@ -6,12 +6,16 @@ import ctaBrand1280Jpg from "@/assets/cta-brand-1280.jpg";
 import ctaBrand1920Jpg from "@/assets/cta-brand-1920.jpg";
 import { Reveal } from "@/components/Reveal";
 import { ArrowIcon } from "@/components/icons";
+import { useContactDialog } from "@/components/ContactDialog";
 
 export function CtaBand() {
+  const { openContactDialog } = useContactDialog();
+
   return (
     <section
+      id="cta"
       aria-label="Appel à l'action"
-      className="relative isolate overflow-hidden bg-ink py-24 md:py-32"
+      className="relative isolate scroll-mt-24 overflow-hidden bg-ink py-24 md:py-32"
     >
       {/* Image de fond */}
       <picture>
@@ -49,13 +53,14 @@ export function CtaBand() {
           </p>
         </Reveal>
         <Reveal delay={160} className="mt-10 flex justify-center">
-          <a
-            href="#contact"
+          <button
+            type="button"
+            onClick={openContactDialog}
             className="group inline-flex items-center gap-2 rounded-lg border border-ink-foreground/30 bg-transparent px-8 py-4 font-sans text-xs font-bold tracking-[0.1em] text-ink-foreground uppercase transition-all duration-300 hover:-translate-y-0.5 hover:border-ink-foreground hover:bg-ink-foreground hover:text-ink"
           >
-            Parlons de votre territoire
+            Parler de mon enjeu
             <ArrowIcon className="h-3.5 w-3.5 text-coral transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
+          </button>
         </Reveal>
       </div>
     </section>

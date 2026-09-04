@@ -27,11 +27,10 @@ function buildNotificationText(values: ContactFormValues): string {
   return [
     `Nom — ${values.nom}`,
     `E-mail — ${values.email}`,
-    values.telephone ? `Téléphone — ${values.telephone}` : null,
+    `Téléphone — ${values.telephone}`,
     `Organisation — ${values.organisation}`,
-    values.fonction ? `Fonction — ${values.fonction}` : null,
+    `Fonction — ${values.fonction}`,
     `Type de besoin — ${values.besoin}`,
-    values.delai ? `Délai souhaité — ${values.delai}` : null,
     "",
     "Message :",
     values.message,
