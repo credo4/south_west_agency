@@ -3,7 +3,7 @@ import { Reveal } from "@/components/Reveal";
 
 export function Agence() {
   return (
-    <section id="agence" aria-labelledby="agence-title" className="bg-background py-24 md:py-36">
+    <section id="agence" aria-labelledby="agence-title" className="bg-background pt-24 pb-12 md:pt-36 md:pb-20">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <div className="grid gap-14 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
           <div>

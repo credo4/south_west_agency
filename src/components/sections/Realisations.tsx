@@ -37,7 +37,7 @@ export function Realisations() {
     <section
       id="realisations"
       aria-labelledby="realisations-title"
-      className="bg-background py-24 md:py-36"
+      className="bg-background pt-24 pb-12 md:pt-36 md:pb-20"
     >
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <Reveal>

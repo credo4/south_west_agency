@@ -12,7 +12,7 @@ export function Insights() {
     <section
       id="insights"
       aria-labelledby="insights-title"
-      className="bg-background py-24 md:py-36"
+      className="bg-background pt-12 pb-24 md:pt-20 md:pb-36"
     >
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <Reveal>

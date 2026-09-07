@@ -42,7 +42,7 @@ export function Expertises() {
     <section
       id="expertises"
       aria-labelledby="expertises-title"
-      className="bg-background py-24 md:py-36"
+      className="bg-background pt-12 pb-24 md:pt-20 md:pb-36"
     >
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">

@@ -9,7 +9,7 @@ const PUBLICS = [
 
 export function Publics() {
   return (
-    <section aria-labelledby="publics-title" className="bg-background py-24 md:py-32">
+    <section aria-labelledby="publics-title" className="bg-background py-12 md:py-20">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <Reveal>
           <p className="swa-kicker">Pour qui</p>
