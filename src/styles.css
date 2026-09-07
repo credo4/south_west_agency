@@ -191,8 +191,12 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
     text-wrap: balance;
+  }
+
+  p {
+    letter-spacing: -0.04em;
   }
 
   ::selection {

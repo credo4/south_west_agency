@@ -117,7 +117,7 @@ export function Header() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="swa-nav-underline block py-2 font-sans text-[0.8125rem] font-medium tracking-[0.08em] text-ink uppercase transition-colors"
+                    className="block py-2 font-sans text-[0.8125rem] font-medium tracking-[0.08em] text-ink uppercase transition-colors hover:text-coral"
                   >
                     {item.label}
                   </a>
