@@ -1,10 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import hero768Webp from "@/assets/hero-territoire-768.webp";
-import hero1280Webp from "@/assets/hero-territoire-1280.webp";
-import hero1920Webp from "@/assets/hero-territoire-1920.webp";
-import hero768Jpg from "@/assets/hero-territoire-768.jpg";
-import hero1280Jpg from "@/assets/hero-territoire-1280.jpg";
-import hero1920Jpg from "@/assets/hero-territoire-1920.jpg";
+import heroImage from "@/assets/hero-section.webp";
 import { ContactDialogProvider } from "@/components/ContactDialog";
 import { Header } from "@/components/sections/Header";
 import { CtaBand } from "@/components/sections/CtaBand";
@@ -90,23 +85,14 @@ function ArticlePage() {
               d'une page à l'autre plutôt qu'une vignette par article. */}
           <Reveal>
             <div className="relative isolate aspect-4/3 max-h-[1444px] w-full overflow-hidden bg-ink md:aspect-21/9">
-              <picture>
-                <source
-                  type="image/webp"
-                  srcSet={`${hero768Webp} 768w, ${hero1280Webp} 1280w, ${hero1920Webp} 1920w`}
-                  sizes="100vw"
-                />
-                <img
-                  src={hero1280Jpg}
-                  srcSet={`${hero768Jpg} 768w, ${hero1280Jpg} 1280w, ${hero1920Jpg} 1920w`}
-                  sizes="100vw"
-                  alt=""
-                  aria-hidden="true"
-                  loading="eager"
-                  decoding="async"
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-              </picture>
+              <img
+                src={heroImage}
+                alt=""
+                aria-hidden="true"
+                loading="eager"
+                decoding="async"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
             </div>
           </Reveal>
 

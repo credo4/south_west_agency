@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import hero1280Webp from "@/assets/hero-territoire-1280.webp";
+import heroImage from "@/assets/hero-section.webp";
 import { absoluteUrl } from "@/lib/site";
 import { ContactDialogProvider } from "@/components/ContactDialog";
 import { ServiceDialogProvider } from "@/components/ServiceDialog";
@@ -44,7 +44,7 @@ export const Route = createFileRoute("/")({
       {
         rel: "preload",
         as: "image",
-        href: hero1280Webp,
+        href: heroImage,
         type: "image/webp",
         fetchPriority: "high",
       },

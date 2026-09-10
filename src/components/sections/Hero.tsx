@@ -1,9 +1,4 @@
-import hero768Webp from "@/assets/hero-territoire-768.webp";
-import hero1280Webp from "@/assets/hero-territoire-1280.webp";
-import hero1920Webp from "@/assets/hero-territoire-1920.webp";
-import hero768Jpg from "@/assets/hero-territoire-768.jpg";
-import hero1280Jpg from "@/assets/hero-territoire-1280.jpg";
-import hero1920Jpg from "@/assets/hero-territoire-1920.jpg";
+import heroImage from "@/assets/hero-section.webp";
 import { Reveal } from "@/components/Reveal";
 import { ArrowIcon, PinIcon, BubbleIcon, WavesIcon } from "@/components/icons";
 import { useReveal } from "@/hooks/use-reveal";
@@ -60,27 +55,17 @@ export function Hero() {
         id="top"
         className="relative isolate min-h-[clamp(620px,82vh,820px)] overflow-hidden bg-background"
       >
-        {/* Image de couverture, plein cadre (LCP : pas de lazy-loading). WebP + repli
-            JPEG, 3 largeurs (768/1280/1920) — l'image occupe 100vw à tous les paliers. */}
-        <picture>
-          <source
-            type="image/webp"
-            srcSet={`${hero768Webp} 768w, ${hero1280Webp} 1280w, ${hero1920Webp} 1920w`}
-            sizes="100vw"
-          />
-          <img
-            src={hero1280Jpg}
-            srcSet={`${hero768Jpg} 768w, ${hero1280Jpg} 1280w, ${hero1920Jpg} 1920w`}
-            sizes="100vw"
-            alt=""
-            aria-hidden="true"
-            fetchPriority="high"
-            decoding="async"
-            width={1920}
-            height={1080}
-            className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
-          />
-        </picture>
+        {/* Image de couverture, plein cadre (LCP : pas de lazy-loading). */}
+        <img
+          src={heroImage}
+          alt=""
+          aria-hidden="true"
+          fetchPriority="high"
+          decoding="async"
+          width={1920}
+          height={1080}
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+        />
 
         {/* Dégradé de lisibilité (horizontal + voile bas), défini via --gradient-hero */}
         <div aria-hidden="true" className="swa-hero-overlay absolute inset-0 -z-10" />
